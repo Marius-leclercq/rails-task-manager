@@ -4,15 +4,17 @@
     <% @tasks.each do |task| %>
       <li class="list-group-item">
         <%= link_to task.title , task_path(task) %>
+        <div class="btn-group">
         <%= link_to "edit task", edit_task_path(task) %>
         <%= link_to "Delete",
-          task_path(task),
+          task_path(task) ,
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
         %>
+        </div>
       </li>
     <% end %>
   </ul>
 </div>
 <div>
-  <%= link_to "create new task", tasks_new_path %>
+  <%= link_to "create new task", tasks_new_path, class: "btn btn-primary" %>
 </div>
